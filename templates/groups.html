@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/css/mybootstrap.min.css">
+    <title>Группы</title>
+    <style>
+        .container_flex{
+            display: inline-block;
+            position: relative;
+            margin:10px 30px;
+            left: 14%;
+        }
+        .table-responsive{
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+{% include "Nav.html" %}
+<div class="container">
+    <div class="container_flex">
+        <div class="table-responsive">
+            <h2>Список преподавателей</h2>
+            <table class="table table-bordered table-striped table-sm table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">Фамилия</th>
+                    <th scope="col">Имя</th>
+                    <th scope="col">Отчество</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for lecturer in lecturers %}
+                <tr>
+                    <td>{{ lecturer.last_name }}</td>
+                    <td>{{ lecturer.name }}</td>
+                    <td>{{ lecturer.surname }}</td>
+                    {% endfor %}
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="container_flex">
+        <div class="table-responsive">
+            <h2>Список предметов</h2>
+            <table class="table table-sm table-bordered table-striped table-responsive table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">Название</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for subject in subjects %}
+                <tr>
+                    <td>{{ subject.subject_name }}</td>
+                    {% endfor %}
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="table table_content">
+        <h2>Список групп</h2>
+        <div class="list-group">
+            {% for group in groups %}
+            <a href="#" class="list-group-item list-group-item-action">
+                {{ group.name }}
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

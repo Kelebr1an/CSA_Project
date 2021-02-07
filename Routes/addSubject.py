@@ -12,7 +12,7 @@ addSubject = Blueprint('addSubject', __name__,
 
 
 @addSubject.route('/addSubject')
-def index5():
+def index():
     return render_template('addSubject.html')
 
 

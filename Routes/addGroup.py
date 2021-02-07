@@ -12,20 +12,18 @@ addGroup = Blueprint('addGroup', __name__,
 
 
 @addGroup.route('/addGroup')
-def index4():
+def index():
     return render_template('addGroup.html')
 
 
 @addGroup.route('/addGroup', methods=['post', 'get'])
 def addGr():
-    message = ''
     if request.method == 'POST':
         name = request.form.get('name')
-
-    if name:
-        message = "Correct data"
-        db_manager.add_group(name=name)
-    else:
-        message = "Wrong data"
+        if name:
+            message = "Correct data"
+            db_manager.add_group(name=name)
+        else:
+            message = "Wrong data"
 
     return render_template('addGroup.html', message=message)

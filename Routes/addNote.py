@@ -16,7 +16,7 @@ addNote = Blueprint('addNote', __name__,
 
 
 @addNote.route('/addNote')
-def index4():
+def index():
     return render_template('addNote.html', lecturers=Lecturer.query.all(), groups=Group.query.all(),
                            intervals=Interval.query.all(), subjects=Subject.query.all())
 

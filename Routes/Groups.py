@@ -10,6 +10,6 @@ groups = Blueprint('groups', __name__,
 
 
 @groups.route('/groups')
-def index1():
+def index():
     return render_template('groups.html', groups=Group.query.all(), lecturers=Lecturer.query.all(),
                            subjects=Subject.query.all())

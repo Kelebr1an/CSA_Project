@@ -12,7 +12,7 @@ addLecturer = Blueprint('addLecturer', __name__,
 
 
 @addLecturer.route('/addLecturer')
-def index3():
+def index():
     return render_template('addLecturer.html')
 
 

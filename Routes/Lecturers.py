@@ -33,7 +33,6 @@ def index():
     cur_group = "БФИ1801"
     group_id = db.session.query(Group.id).filter(Group.name == cur_group).first()[0]
     schedule = db.session.query(Schedule).filter(Schedule.group_id == group_id)
-    print(schedule)
     return render_template('index.html', curdate=today.strftime('%d-%m-%Y'), todned=todned, cur_group=cur_group,
                            days=days, trvs=trv, lecturers=Lecturer.query.all(), subjects=Subject.query.all(),
                            intervals=Interval.query.all(), group_names=Group.query.all(), schedules=schedule)
